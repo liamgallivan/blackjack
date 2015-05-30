@@ -39,14 +39,3 @@ class window.App extends Backbone.Model
         hand.hit()
         currentScore = hand.getScore()
       hand.trigger 'stand'
-
-
-
-
-
-    #flip card of dealer
-
-    #calculate score
-      #if and while dealer score < 17 then dealer.hit()
-      #if dealerHand >=17 trigger stand
-      #if dealerscore > 21 @trigger 'bust'

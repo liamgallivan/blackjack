@@ -12,6 +12,8 @@ class window.AppView extends Backbone.View
       $('body').empty()
       new AppView(model: new App()).$el.appendTo 'body'
 
+      $('body').append($('<div class="deck"></div>'))
+
   initialize: ->
     @model.on 'playerWin', @playerWin, @
     @model.on 'dealerWin', @dealerWin, @

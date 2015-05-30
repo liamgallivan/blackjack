@@ -1,3 +1,9 @@
+
+body {
+  /*background-image: url('../img/background.jpg');*/
+  background-color: darkgreen;
+  font-family: poker;
+}
 .card {
   float: left;
   border: solid 1px black;
@@ -7,15 +13,57 @@
   margin-right: 20px;
   background-size: cover;
 }
-
 .covered {
   background-image: url('../img/card-back.png');
 }
 
-.hand {
-  overflow: auto;
+.hand{
+  font-size: 300%;
+}
+.player-hand-container {
+  padding-left: 80px;
+  padding-right: 100px;
+  padding-bottom: 40px;
+  color: rgb(0, 0, 0);
+  background-color:rgba(255,255,255,0.3);
+  position: absolute;
+  left: 40%;
+  bottom: 20px;
+  border-radius: 50px;
 }
 
-body {
-  background-color: green;
+
+.dealer-hand-container {
+  padding-left: 80px;
+  padding-right: 100px;
+  padding-bottom: 40px;
+  color: rgb(0, 0, 0);
+  background-color:rgba(255,255,255,0.3);
+  position: absolute;
+  left: 40%;
+  top: 20px;
+  border-radius: 50px;
 }
+
+.deck{
+  position: absolute;
+  background-image: url('../img/card-back.png');
+  border: solid 1px black;
+  width: 100px;
+  border-radius: 5px;
+  height: 140px;
+  margin-right: 20px;
+  background-size: cover;
+  top: 40%;
+  left: 30%;
+}
+
+/*.back{
+  width: window-width;
+  height: window-height;
+  padding-left: 100px;
+  padding-right: 100px;
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.3);
+}*/
+@font-face{font-family: poker; src:url('poker.ttf');}
