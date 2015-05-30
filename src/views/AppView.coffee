@@ -30,13 +30,19 @@ class window.AppView extends Backbone.View
     console.log 'dealer win'
     @$el.append ($ '<h3>You Lose...</h3><button class="replay">Play Again?</button>')
     # display dealer wins
+    $('.stand-button').toggle()
+    $('.hit-button').toggle()
+
     #option for new game
   playerWin: ->
     console.log 'player win'
     @$el.append ($ '<h3>You Win!</h3><button class="replay">Play Again?</button>')
+    $('.stand-button').toggle()
+    $('.hit-button').toggle()
     # display Player Wins
     # start new game
   draw: ->
     console.log 'draw'
     @$el.append ($ '<h3>Draw! :O</h3><button class="replay">Play Again?</button>')
-
+    $('.stand-button').toggle()
+    $('.hit-button').toggle()

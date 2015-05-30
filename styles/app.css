@@ -5,12 +5,17 @@
   border-radius: 5px;
   height: 140px;
   margin-right: 20px;
+  background-size: cover;
 }
 
 .covered {
-  background-color: black;
+  background-image: url('../img/card-back.png');
 }
 
 .hand {
   overflow: auto;
+}
+
+body {
+  background-color: green;
 }
