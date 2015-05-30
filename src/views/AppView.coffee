@@ -8,13 +8,35 @@ class window.AppView extends Backbone.View
   events:
     'click .hit-button': -> @model.get('playerHand').hit()
     'click .stand-button': -> @model.get('playerHand').stand()
+    'click .replay': ->
+      $('body').empty()
+      new AppView(model: new App()).$el.appendTo 'body'
 
   initialize: ->
+    @model.on 'playerWin', @playerWin, @
+    @model.on 'dealerWin', @dealerWin, @
+    @model.on 'draw', @draw, @
+
     @render()
+
 
   render: ->
     @$el.children().detach()
     @$el.html @template()
     @$('.player-hand-container').html new HandView(collection: @model.get 'playerHand').el
     @$('.dealer-hand-container').html new HandView(collection: @model.get 'dealerHand').el
+
+  dealerWin: ->
+    console.log 'dealer win'
+    @$el.append ($ '<h3>You Lose...</h3><button class="replay">Play Again?</button>')
+    # display dealer wins
+    #option for new game
+  playerWin: ->
+    console.log 'player win'
+    @$el.append ($ '<h3>You Win!</h3><button class="replay">Play Again?</button>')
+    # display Player Wins
+    # start new game
+  draw: ->
+    console.log 'draw'
+    @$el.append ($ '<h3>Draw! :O</h3><button class="replay">Play Again?</button>')
 
