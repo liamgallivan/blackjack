@@ -10,11 +10,14 @@ class window.App extends Backbone.Model
     (@get 'playerHand').on 'stand', @dealerTurn, @
 
     (@get 'dealerHand').on 'stand', @resolveGame, @
+    # (@get 'dealerHand').on 'blackJack', @dealerWin, @
+    # (@get 'playerHand').on 'blackJack', @playerWin, @
+
   resolveGame: ->
     #playerScore take best score from playerHand
     playerScore = (@get 'playerHand').currentScore
     dealerScore = (@get 'dealerHand').currentScore
-    dealerScore = if dealerScore < 22 then dealerScore else 0
+    if dealerScore > 21 then return
 
     console.log playerScore, dealerScore
     #if dealerScore > dealerScore then @trigger playerWin else dealerWin
@@ -30,14 +33,13 @@ class window.App extends Backbone.Model
   dealerTurn: ->
     hand =  @get 'dealerHand'
     (hand.at 0).flip()
-    if hand.scores()[1] < 22
-      while hand.scores()[1] < 17
+    currentScore = hand.getScore()
+    if currentScore < 22
+      while currentScore < 17
         hand.hit()
+        currentScore = hand.getScore()
       hand.trigger 'stand'
 
-    if hand.scores()[1] > 21
-      while hand.scores()[0] < 17
-        hand.hit()
 
 
 
